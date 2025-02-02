@@ -1,0 +1,14 @@
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Rewrite rules for API
+RewriteEngine On
+RewriteBase /api/
+
+# Rewrite API requests to PHP files
+RewriteRule ^auth/(.*)$ auth.php [QSA,L]
+RewriteRule ^parcels/(.*)$ parcels.php [QSA,L]
+RewriteRule ^driver/(.*)$ driver.php [QSA,L]
+RewriteRule ^admin/(.*)$ admin.php [QSA,L]
